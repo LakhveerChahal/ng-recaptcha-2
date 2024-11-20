@@ -15,6 +15,7 @@ describe("RecaptchaValueAccessorDirective -> [(ngModel)]", () => {
         <div *ngIf="captcha.pristine" captcha-pristine></div>
       </form>
     `,
+    standalone: false,
   })
   class TestComponent {
     public formModel: { captcha: string | null } = { captcha: null };
@@ -117,6 +118,7 @@ describe("RecaptchaValueAccessorDirective -> formGroup", () => {
         <re-captcha formControlName="captcha"></re-captcha>
       </form>
     `,
+    standalone: false,
   })
   class TestComponent {
     public loading$ = new BehaviorSubject<boolean>(false);

@@ -5,6 +5,7 @@ import { RecaptchaErrorParameters } from "ng-recaptcha";
 @Component({
   selector: "recaptcha-demo",
   templateUrl: "./invisible-demo.component.html",
+  standalone: false,
 })
 export class InvisibleDemoComponent {
   public captchaResponse = "";

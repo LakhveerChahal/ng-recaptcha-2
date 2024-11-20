@@ -27,6 +27,7 @@ export type RecaptchaErrorParameters = Parameters<NeverUndefined<ReCaptchaV2.Par
   exportAs: "reCaptcha",
   selector: "re-captcha",
   template: ``,
+  standalone: false,
 })
 export class RecaptchaComponent implements AfterViewInit, OnDestroy {
   @Input()

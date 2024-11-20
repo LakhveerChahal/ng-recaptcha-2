@@ -13,6 +13,7 @@ import { Subscription } from "rxjs";
     `,
   ],
   templateUrl: "./v3-demo.component.html",
+  standalone: false,
 })
 export class RecaptchaV3DemoComponent implements OnInit, OnDestroy {
   public recentToken = "";
