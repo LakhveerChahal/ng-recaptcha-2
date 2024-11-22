@@ -202,9 +202,10 @@ Besides specifying these options on the component itself, you can provide a glob
 
 ## <a name="angular-versions"></a>Angular version compatibility
 
-| `ng-recaptcha-2` version                                                         | Supported Angular versions                           |
-| -------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| `14.x.x`                                                                         | `18.x.x`                                             |
+| `ng-recaptcha-2` version | Supported Angular versions |
+| ------------------------ | -------------------------- |
+| `15.x.x`                 | `19.x.x`                   |
+| `14.x.x`                 | `18.x.x`                   |
 
 | `ng-recaptcha` version                                                           | Supported Angular versions                           |
 | -------------------------------------------------------------------------------- | ---------------------------------------------------- |
