@@ -34,6 +34,7 @@ function isPageSettings(value: unknown): value is PageSettings {
   selector: "recaptcha-demo-wrapper",
   styleUrls: ["./demo-wrapper.component.css"],
   templateUrl: "./demo-wrapper.component.html",
+  standalone: false,
 })
 export class DemoWrapperComponent implements OnInit, OnDestroy {
   public site = {

@@ -1,5 +1,5 @@
 import { LayoutModule } from "@angular/cdk/layout";
-import { APP_INITIALIZER, NgModule } from "@angular/core";
+import { NgModule, inject, provideAppInitializer } from "@angular/core";
 import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
 
@@ -22,8 +22,8 @@ import { DemoWrapperComponent, NAV_LINKS } from "./demo-wrapper.component";
 import { navLinks } from "./demo-wrapper.data.auto-gen";
 import { DemoWrapperRoutingModule } from "./demo-wrapper-routing.module";
 
-function appLoadFactory(config: ConfigService) {
-  return () => config.loadConfig();
+function appLoadFactory(config: ConfigService): Promise<void> {
+  return config.loadConfig();
 }
 
 @NgModule({
@@ -49,12 +49,7 @@ function appLoadFactory(config: ConfigService) {
   ],
   providers: [
     { provide: NAV_LINKS, useValue: navLinks },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appLoadFactory,
-      deps: [ConfigService],
-      multi: true,
-    },
+    provideAppInitializer(() => appLoadFactory(inject(ConfigService))),
     provideHttpClient(withInterceptorsFromDi()),
   ],
 })

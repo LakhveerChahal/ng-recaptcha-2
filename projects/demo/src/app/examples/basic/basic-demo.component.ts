@@ -5,6 +5,7 @@ import { RecaptchaErrorParameters } from "ng-recaptcha";
 @Component({
   selector: "recaptcha-demo",
   templateUrl: "./basic-demo.component.html",
+  standalone: false,
 })
 export class BasicDemoComponent {
   public resolved(captchaResponse: string): void {

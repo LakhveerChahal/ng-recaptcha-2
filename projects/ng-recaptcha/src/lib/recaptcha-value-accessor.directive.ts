@@ -12,6 +12,7 @@ import { RecaptchaComponent } from "./recaptcha.component";
     },
   ],
   selector: "re-captcha[formControlName],re-captcha[formControl],re-captcha[ngModel]",
+  standalone: false,
 })
 export class RecaptchaValueAccessorDirective implements ControlValueAccessor {
   /** @internal */

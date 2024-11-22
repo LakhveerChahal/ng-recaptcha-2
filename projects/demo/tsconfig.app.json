@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
-    "types": []
+    "types": ["@types/grecaptcha"]
   },
   "files": ["src/app/demo-wrapper/demo-wrapper.main.ts", "src/polyfills.ts"],
   "include": ["src/**/*.d.ts", "src/**/*-demo.module.ts"]

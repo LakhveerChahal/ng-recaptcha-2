@@ -17,6 +17,7 @@ export interface FormModel {
     `,
   ],
   templateUrl: "./forms-demo.component.html",
+  standalone: false,
 })
 export class FormsDemoComponent {
   public formModel: FormModel = {};
