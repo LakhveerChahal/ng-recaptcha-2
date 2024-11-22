@@ -14,13 +14,14 @@
     "recaptcha",
     "angular-recaptcha",
     "ng-recaptcha",
-    "angular-18"
+    "ng-recaptcha-2",
+    "angular-19"
   ],
   "peerDependencies": {
     "@angular/core": "^19.0.0"
   },
   "dependencies": {
-    "@types/grecaptcha": "^3.0.7",
+    "@types/grecaptcha": "^3.0.9",
     "tslib": "^2.2.0"
   }
 }

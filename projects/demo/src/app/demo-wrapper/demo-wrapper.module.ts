@@ -22,8 +22,8 @@ import { DemoWrapperComponent, NAV_LINKS } from "./demo-wrapper.component";
 import { navLinks } from "./demo-wrapper.data.auto-gen";
 import { DemoWrapperRoutingModule } from "./demo-wrapper-routing.module";
 
-function appLoadFactory(config: ConfigService) {
-  return () => config.loadConfig();
+function appLoadFactory(config: ConfigService): Promise<void> {
+  return config.loadConfig();
 }
 
 @NgModule({
@@ -49,7 +49,7 @@ function appLoadFactory(config: ConfigService) {
   ],
   providers: [
     { provide: NAV_LINKS, useValue: navLinks },
-    provideAppInitializer(appLoadFactory(inject(ConfigService))),
+    provideAppInitializer(() => appLoadFactory(inject(ConfigService))),
     provideHttpClient(withInterceptorsFromDi()),
   ],
 })
