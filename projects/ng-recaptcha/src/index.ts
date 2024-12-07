@@ -1,3 +1,5 @@
+/// <reference types="grecaptcha" preserve="true"/>
+
 export { RecaptchaComponent, RecaptchaErrorParameters } from "./lib/recaptcha.component";
 export { RecaptchaLoaderService } from "./lib/recaptcha-loader.service";
 export { RecaptchaModule } from "./lib/recaptcha.module";
