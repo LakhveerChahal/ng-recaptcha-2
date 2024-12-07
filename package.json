@@ -1,7 +1,7 @@
 {
   "name": "ng-recaptcha-base",
   "private": true,
-  "version": "15.0.2-rc1",
+  "version": "15.0.2",
   "scripts": {
     "demo:file-gen": "ts-node --project ./tsconfig.node.json ./projects/demo/bin/file-gen.ts",
     "demo:serve": "yarn demo:file-gen && ng serve demo",
@@ -30,11 +30,11 @@
   "peerDependencies": {},
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.0.0",
-    "@angular-eslint/builder": "19.0.0-alpha.0",
-    "@angular-eslint/eslint-plugin": "19.0.0-alpha.0",
-    "@angular-eslint/eslint-plugin-template": "19.0.0-alpha.0",
-    "@angular-eslint/schematics": "19.0.0-alpha.0",
-    "@angular-eslint/template-parser": "19.0.0-alpha.0",
+    "@angular-eslint/builder": "19.0.1",
+    "@angular-eslint/eslint-plugin": "19.0.1",
+    "@angular-eslint/eslint-plugin-template": "19.0.1",
+    "@angular-eslint/schematics": "19.0.1",
+    "@angular-eslint/template-parser": "19.0.1",
     "@angular/animations": "^19.0.0",
     "@angular/cdk": "19.0.0",
     "@angular/cli": "^19.0.0",
