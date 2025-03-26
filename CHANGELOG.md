@@ -1,3 +1,89 @@
+<a name="15.0.3"></a>
+
+## 15.0.3 (2025-03-26)
+
+### Bug Fixes
+
+- **build:** fix AoT builds ([921be50](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/921be50)), closes [#57](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/57) [#65](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/65)
+- **component-v3:** fix a potential metadata error in v3 service ([ed885b5](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/ed885b5))
+- **component:** catch and propagate grecaptcha errors, closes [#175](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/175) ([075edd0](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/075edd0))
+- **component:** correct type when using strict mode ([a687d13](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/a687d13)), closes [#211](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/211)
+- **component:** correctly emit `resolved` event ([25d4246](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/25d4246))
+- **component:** correctly reset captcha during `ngOnDestroy` ([b31d57f](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/b31d57f)), closes [#12](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/12)
+- **component:** delay invisible recaptcha execution until it's rendered ([99292b7](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/99292b7)), closes [#127](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/127)
+- **component:** emit `resolved(null)` event when recaptcha expires ([491d99a](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/491d99a)), closes [#11](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/11)
+- **component:** ensure that component is destroyed safely ([1e51d56](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/1e51d56)), closes [#46](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/46)
+- **component:** fix a potential error during recaptcha rendering ([1c395b5](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/1c395b5))
+- **component:** fix custom languages for reCAPTCHA v3 ([a2b145d](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/a2b145d)), closes [#174](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/174)
+- **component:** fix server-side rendering ([7a5bc6c](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/7a5bc6c)), closes [#34](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/34) [/github.com/angular/angular/blob/master/CHANGELOG.md#features-20](https://github.com//github.com/angular/angular/blob/master/CHANGELOG.md/issues/features-20)
+- **component:** fix the injection error when using slandalone `RecaptchaV3Module` ([c93b99c](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/c93b99c))
+- **component:** handle id input parameter correctly ([b578fe5](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/b578fe5))
+- **component:** handle top-level `execute` errors for reCAPTCHA v3 ([c7d02ce](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/c7d02ce)), closes [#194](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/194)
+- **component:** improve reCAPTCHA v2 and v3 interoperability ([79fc85b](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/79fc85b)), closes [#152](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/152)
+- **component:** mark `forRoot()` method as deprecated ([dea31e5](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/dea31e5))
+- **component:** Replace `OpaqueToken` with `InjectionToken` ([2b7db9b](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/2b7db9b))
+- **component:** reset form-bound captcha value after component destruction ([9e5c5e7](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/9e5c5e7)), closes [#201](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/201)
+- **component:** reset form-bound captcha value after component destruction ([0e550c4](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/0e550c4)), closes [#201](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/201)
+- **component:** reset the captcha when the component is destroyed ([e1441c8](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/e1441c8)), closes [#10](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/10)
+- **component:** set CSP nonce as attribute ([abcb9a6](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/abcb9a6))
+- **component:** unblock protractor tests after <re-captcha> destruction ([a5f2fe9](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/a5f2fe9))
+- **component:** use ElementRef to access component's native element ([d3a8409](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/d3a8409)), closes [#48](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/48) [#68](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/68)
+- **demo:** re-add a missing systemjs config file ([b51694a](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/b51694a))
+- **module:** Adding the value accessor directive to the forms barrel, which was missing. ([ad73e2e](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/ad73e2e))
+- **package:** convert the `README.md` file back to a proper symlink ([e0c5c99](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/e0c5c99))
+- **package:** fix publishing empty package ([e4685fe](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/e4685fe))
+- **package:** make `[@types](https://github.com/types)/grecaptcha` a non-optional dependency ([bc5ad51](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/bc5ad51)), closes [#205](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/205)
+- **rxjs:** change import of `of` operator ([3e0bda6](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/3e0bda6)), closes [#95](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/95)
+
+### Features
+
+- **component:** _deprecate_ `error` output in favor of `errored` ([6b002bb](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/6b002bb))
+- **component:** add `exportAs` annotation ([3e2e217](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/3e2e217))
+- **component:** add a new `RECAPTCHA_LOADER_OPTIONS` injection token as a way of manipulating script load parameters (such as base URL, language, trusted types, WAF, etc) ([b3c7213](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/b3c7213))
+- **component:** Add Angular 11 support ([918fe90](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/918fe90))
+- **component:** add support for `badge` property ([5a16430](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/5a16430)), closes [#30](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/30)
+- **component:** add support for invisible reCAPTCHA ([c19489d](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/c19489d)), closes [#18](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/18)
+- **component:** add support for reCAPTCHA v3 ([4a083c6](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/4a083c6)), closes [#129](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/129)
+- **component:** add the ability to handle reCAPTCHA errors ([80c9e6e](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/80c9e6e)), closes [#199](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/199)
+- **component:** add the ability to provide `nonce` to the script tag ([8f55b19](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/8f55b19)), closes [#100](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/100)
+- **component:** add the ability to specify component props globally ([d9c5f55](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/d9c5f55)), closes [#45](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/45)
+- **component:** adjust dependencies for Angular 6 support ([736c7ae](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/736c7ae))
+- **component:** allow to specify a base url for loading recaptcha ([df505fd](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/df505fd)), closes [#101](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/101)
+- **component:** change component and directive selectors ([58a01b4](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/58a01b4))
+- **component:** load recaptcha script using code compatible with trusted types ([88d257b](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/88d257b)), closes [#304](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/304)
+- **component:** make Angular 10.0.0 a supported peer dependency ([3d7756b](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/3d7756b)), closes [#177](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/177)
+- **component:** make Angular 8.0.0 a supported peer dependency ([f003ff2](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/f003ff2))
+- **component:** make Angular 9.0.0 a supported peer dependency ([98edce6](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/98edce6)), closes [#168](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/168)
+- **component:** remove deprecated `forRoot` method ([514beaf](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/514beaf))
+- **misc:** Annotating a static field with nocollapse so that we doesn't have issues closure compiler in advanced mode. ([55e5932](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/55e5932))
+- **module:** change the way recaptcha modules work ([6e13389](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/6e13389))
+- **module:** skip `forRoot()` when importing `RecaptchaModule` ([7fb97fb](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/7fb97fb)), closes [#113](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/113) [#116](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/116)
+- **package management:** add `[@types](https://github.com/types)/grecaptcha` as optional dependency ([85fbfba](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/85fbfba))
+- **package:** add Angular 12 support ([a212a21](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/a212a21))
+- **package:** add Angular 14 support ([eac6858](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/eac6858))
+- **package:** add Angular 15 support ([6c62634](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/6c62634)), closes [#275](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/275)
+- **package:** add Angular 16 support ([77a7d1f](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/77a7d1f)), closes [#288](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/288)
+- **package:** add Angular 17 support ([83714aa](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/83714aa)), closes [#310](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/310)
+- **package:** implement Angular Package format ([71340c4](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/71340c4))
+- **package:** update `"[@types](https://github.com/types)/grecaptcha"` optional dependency version to ^3 ([e1ee7b9](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/e1ee7b9))
+- **package:** update peer dependencies to include Angular 7 ([929ef7a](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/929ef7a))
+- **package:** update peer dependencies to include Angular v4 ([b2f04e8](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/b2f04e8))
+- **package:** upgrade to Angular 13 ([af08641](https://github.com/LakhveerChahal/ng-recaptcha-2/commit/af08641)), closes [#245](https://github.com/LakhveerChahal/ng-recaptcha-2/issues/245)
+
+### BREAKING CHANGES
+
+- **package:** - Angular v16 is no longer supported with this version. Pin `ng-recaptcha` to `v12.x.x` to retain support for a previous Angular version
+- **package:** - Angular v15 is no longer supported with this version. Pin `ng-recaptcha` to `v11.x.x` to retain support for a previous Angular version
+- **component:** Support for previous versions of Angular has been dropped. Starting from v7 only one version of Angular will be supported.
+- **component:** The `RecaptchaModule.forRoot()` method has been obsolete since v4.1.0 (since it has no longer been required). It is now removed. To migrate your code, simply use `RecaptchaModule` where you previously used `RecaptchaModule.forRoot()`
+- **package:** \* `ng-recaptcha/forms` entry point has been removed. `RecaptchaFormsModule` and `RecaptchaValueAccessorDirective` should now be imported directly from `ng-recaptcha`
+- `tslib` is now a package dependency to ensure minimum possible bundle size. If your project doesn't yet have a dependency on `tslib`, run `npm install -D tslib@^1.9.0` (or `yarn add -D tslib@^1.9.0` if you use yarn)
+- **component:** The peer dependency for `@angular/core` has been bumped to `^6.0.0`
+- **component:**
+- **component:** component selector changed from `recaptcha` to `re-captcha`
+- **module:** module handling has changed.
+  Users of `RecaptchaNoFormsModule` should instead use `import { RecaptchaModule } from 'ng-recaptcha'`. Users of v1 `RecaptchaModule` should also `import { RecaptchaFormsModule } from 'ng-recaptcha/forms'`. SystemJS users must also re-setup module "main" file to `index.js`
+
 <a name="15.0.2"></a>
 
 ## [15.0.2](https://github.com/LakhveerChahal/ng-recaptcha-2/compare/v15.0.2-rc1...v15.0.2) (2024-12-07)

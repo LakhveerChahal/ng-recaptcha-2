@@ -38,6 +38,7 @@ module.exports = {
         //   { type: "attribute", prefix: "re", style: "camelCase" },
         // ],
         "@angular-eslint/directive-selector": 0,
+        "@angular-eslint/prefer-standalone": 0,
         "@angular-eslint/component-selector": ["error", { type: "element", prefix: "re", style: "kebab-case" }],
         "@typescript-eslint/no-namespace": [
           "error",
