@@ -1,7 +1,7 @@
 {
   "name": "ng-recaptcha-2",
   "description": "Angular component for Google reCAPTCHA for Angular v18 and onwards",
-  "version": "15.0.3",
+  "version": "16.0.0",
   "author": "Ruslan Arkhipau <dethariel@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -15,10 +15,10 @@
     "angular-recaptcha",
     "ng-recaptcha",
     "ng-recaptcha-2",
-    "angular-19"
+    "angular-20"
   ],
   "peerDependencies": {
-    "@angular/core": "^19.0.0"
+    "@angular/core": "^20.0.1"
   },
   "dependencies": {
     "@types/grecaptcha": "^3.0.9",
