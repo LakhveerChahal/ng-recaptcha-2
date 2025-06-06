@@ -9,6 +9,7 @@ declare global {
 export type RenderMode = "explicit" | { key: string };
 
 function loadScript(
+  this: void,
   renderMode: RenderMode,
   onBeforeLoad: (url: URL) => { url: URL; nonce?: string },
   onLoaded: (grecaptcha: ReCaptchaV2.ReCaptcha) => void,
@@ -42,7 +43,7 @@ function loadScript(
   document.head.appendChild(script);
 }
 
-function newLoadScript({
+function newLoadScript(this:void, {
   v3SiteKey,
   onBeforeLoad,
   onLoaded,

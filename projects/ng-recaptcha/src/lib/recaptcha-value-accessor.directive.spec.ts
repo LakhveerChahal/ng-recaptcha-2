@@ -12,9 +12,11 @@ describe("RecaptchaValueAccessorDirective -> [(ngModel)]", () => {
     template: `
       <form #captchaForm="ngForm">
         <re-captcha [(ngModel)]="formModel.captcha" name="captcha" #captcha="ngModel"></re-captcha>
-        <div *ngIf="captcha.pristine" captcha-pristine></div>
+        @if (captcha.pristine) {
+          <div captcha-pristine></div>
+        }
       </form>
-    `,
+      `,
     standalone: false,
   })
   class TestComponent {
@@ -114,10 +116,12 @@ describe("RecaptchaValueAccessorDirective -> [(ngModel)]", () => {
 describe("RecaptchaValueAccessorDirective -> formGroup", () => {
   @Component({
     template: `
-      <form [formGroup]="formGroup" *ngIf="(loading$ | async) === false">
-        <re-captcha formControlName="captcha"></re-captcha>
-      </form>
-    `,
+      @if ((loading$ | async) === false) {
+        <form [formGroup]="formGroup">
+          <re-captcha formControlName="captcha"></re-captcha>
+        </form>
+      }
+      `,
     standalone: false,
   })
   class TestComponent {

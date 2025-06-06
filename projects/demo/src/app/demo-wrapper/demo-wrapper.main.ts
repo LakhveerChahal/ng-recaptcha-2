@@ -1,8 +1,8 @@
 import { enableProdMode } from "@angular/core";
-import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { platformBrowser } from "@angular/platform-browser";
 import { DemoWrapperModule } from "./demo-wrapper.module";
 
 enableProdMode();
-platformBrowserDynamic()
+platformBrowser()
   .bootstrapModule(DemoWrapperModule)
   .catch((err) => console.error(err));
