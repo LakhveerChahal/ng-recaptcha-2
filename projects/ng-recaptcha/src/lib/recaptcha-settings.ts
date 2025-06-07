@@ -1,3 +1,5 @@
+/// <reference types="grecaptcha" preserve="true"/>
+
 export interface RecaptchaSettings {
   siteKey?: string;
   theme?: ReCaptchaV2.Theme;
