@@ -1,3 +1,7 @@
+<a name="16.0.1"></a>
+
+## [16.0.1](https://github.com/LakhveerChahal/ng-recaptcha-2/compare/15.0.3...16.0.1) (2025-06-07)
+
 <a name="15.0.3"></a>
 
 ## 15.0.3 (2025-03-26)
