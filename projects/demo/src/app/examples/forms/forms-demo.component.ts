@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 
 export interface FormModel {
   captcha?: string;
@@ -17,6 +17,7 @@ export interface FormModel {
     `,
   ],
   templateUrl: "./forms-demo.component.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class FormsDemoComponent {

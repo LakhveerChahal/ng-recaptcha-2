@@ -5,5 +5,14 @@
     "types": ["@types/grecaptcha"]
   },
   "files": ["src/app/demo-wrapper/demo-wrapper.main.ts", "src/polyfills.ts"],
-  "include": ["src/**/*.d.ts", "src/**/*-demo.module.ts"]
+  "include": ["src/**/*.d.ts", "src/**/*-demo.module.ts"],
+  "angularCompilerOptions": {
+    "extendedDiagnostics": {
+      "checks": {
+        "nullishCoalescingNotNullable": "suppress",
+        "optionalChainNotNullable": "suppress"
+      }
+    },
+    "strictTemplates": false
+  }
 }
