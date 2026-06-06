@@ -1,5 +1,14 @@
 import { MediaMatcher } from "@angular/cdk/layout";
-import { ChangeDetectorRef, Component, Inject, InjectionToken, OnDestroy, OnInit, VERSION } from "@angular/core";
+import {
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  InjectionToken,
+  OnDestroy,
+  OnInit,
+  VERSION,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import { Title, DomSanitizer } from "@angular/platform-browser";
 import { Router, ResolveEnd, ActivatedRouteSnapshot, Data } from "@angular/router";
 import { MatIconRegistry } from "@angular/material/icon";
@@ -34,6 +43,7 @@ function isPageSettings(value: unknown): value is PageSettings {
   selector: "recaptcha-demo-wrapper",
   styleUrls: ["./demo-wrapper.component.css"],
   templateUrl: "./demo-wrapper.component.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class DemoWrapperComponent implements OnInit, OnDestroy {

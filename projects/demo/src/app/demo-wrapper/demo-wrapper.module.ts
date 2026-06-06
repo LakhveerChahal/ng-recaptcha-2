@@ -1,6 +1,6 @@
 import { LayoutModule } from "@angular/cdk/layout";
 import { NgModule, inject, provideAppInitializer } from "@angular/core";
-import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { MatButtonModule } from "@angular/material/button";
@@ -50,7 +50,7 @@ function appLoadFactory(config: ConfigService): Promise<void> {
   providers: [
     { provide: NAV_LINKS, useValue: navLinks },
     provideAppInitializer(() => appLoadFactory(inject(ConfigService))),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withXhr(), withInterceptorsFromDi()),
   ],
 })
 export class DemoWrapperModule {}

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from "@angular/core";
 
 import { OnExecuteData, OnExecuteErrorData, ReCaptchaV3Service } from "ng-recaptcha";
 import { Subscription } from "rxjs";
@@ -13,6 +13,7 @@ import { Subscription } from "rxjs";
     `,
   ],
   templateUrl: "./v3-demo.component.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class RecaptchaV3DemoComponent implements OnInit, OnDestroy {

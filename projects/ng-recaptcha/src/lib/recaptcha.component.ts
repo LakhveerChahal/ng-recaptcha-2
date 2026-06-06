@@ -2,14 +2,14 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  EventEmitter,
   HostBinding,
   Inject,
-  Input,
+  model,
   NgZone,
   OnDestroy,
   Optional,
-  Output,
+  output,
+  ChangeDetectionStrategy,
 } from "@angular/core";
 import { Subscription } from "rxjs";
 
@@ -27,28 +27,28 @@ export type RecaptchaErrorParameters = Parameters<NeverUndefined<ReCaptchaV2.Par
   exportAs: "reCaptcha",
   selector: "re-captcha",
   template: ``,
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class RecaptchaComponent implements AfterViewInit, OnDestroy {
-  @Input()
   @HostBinding("attr.id")
-  public id = `ngrecaptcha-${nextId++}`;
+  public id = model<string>(`ngrecaptcha-${nextId++}`);
 
-  @Input() public siteKey?: string;
-  @Input() public theme?: ReCaptchaV2.Theme;
-  @Input() public type?: ReCaptchaV2.Type;
-  @Input() public size?: ReCaptchaV2.Size;
-  @Input() public tabIndex?: number;
-  @Input() public badge?: ReCaptchaV2.Badge;
-  @Input() public errorMode: "handled" | "default" = "default";
+  public siteKey = model<string>();
+  public theme = model<ReCaptchaV2.Theme>();
+  public type = model<ReCaptchaV2.Type>();
+  public size = model<ReCaptchaV2.Size>();
+  public tabIndex = model<number>();
+  public badge = model<ReCaptchaV2.Badge>();
+  public errorMode = model<"handled" | "default">("default");
 
-  @Output() public resolved = new EventEmitter<string | null>();
+  public resolved = output<string | null>();
   /**
    * @deprecated `(error) output will be removed in the next major version. Use (errored) instead
    */
   // eslint-disable-next-line @angular-eslint/no-output-native
-  @Output() public error = new EventEmitter<RecaptchaErrorParameters>();
-  @Output() public errored = new EventEmitter<RecaptchaErrorParameters>();
+  public error = output<RecaptchaErrorParameters>();
+  public errored = output<RecaptchaErrorParameters>();
 
   /** @internal */
   private subscription: Subscription;
@@ -66,11 +66,19 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
     @Optional() @Inject(RECAPTCHA_SETTINGS) settings?: RecaptchaSettings,
   ) {
     if (settings) {
-      this.siteKey = settings.siteKey;
-      this.theme = settings.theme;
-      this.type = settings.type;
-      this.size = settings.size;
-      this.badge = settings.badge;
+      this.siteKey.set(settings.siteKey);
+      if (settings.theme) {
+        this.theme.set(settings.theme);
+      }
+      if (settings.type) {
+        this.type.set(settings.type);
+      }
+      if (settings.size) {
+        this.size.set(settings.size);
+      }
+      if (settings.badge) {
+        this.badge.set(settings.badge);
+      }
     }
   }
 
@@ -97,7 +105,7 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
    * Does nothing if component's size is not set to "invisible".
    */
   public execute(): void {
-    if (this.size !== "invisible") {
+    if (this.size() !== "invisible") {
       return;
     }
 
@@ -162,21 +170,21 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
   private renderRecaptcha() {
     // This `any` can be removed after @types/grecaptcha get updated
     const renderOptions: ReCaptchaV2.Parameters = {
-      badge: this.badge,
+      badge: this.badge(),
       callback: (response: string) => {
         this.zone.run(() => this.captchaResponseCallback(response));
       },
       "expired-callback": () => {
         this.zone.run(() => this.expired());
       },
-      sitekey: this.siteKey,
-      size: this.size,
-      tabindex: this.tabIndex,
-      theme: this.theme,
-      type: this.type,
+      sitekey: this.siteKey(),
+      size: this.size(),
+      tabindex: this.tabIndex(),
+      theme: this.theme(),
+      type: this.type(),
     };
 
-    if (this.errorMode === "handled") {
+    if (this.errorMode() === "handled") {
       renderOptions["error-callback"] = (...args: RecaptchaErrorParameters) => {
         this.zone.run(() => this.onError(args));
       };
