@@ -51,13 +51,13 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
   public errored = output<RecaptchaErrorParameters>();
 
   /** @internal */
-  private subscription: Subscription;
+  private subscription: Subscription | undefined;
   /** @internal */
-  private widget: number;
+  private widget: number | null = null;
   /** @internal */
-  private grecaptcha: ReCaptchaV2.ReCaptcha;
+  private grecaptcha: ReCaptchaV2.ReCaptcha | undefined;
   /** @internal */
-  private executeRequested: boolean;
+  private executeRequested: boolean = false;
 
   constructor(
     private elementRef: ElementRef<HTMLElement>,
@@ -110,7 +110,7 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
     }
 
     if (this.widget != null) {
-      void this.grecaptcha.execute(this.widget);
+      void this.grecaptcha?.execute(this.widget);
     } else {
       // delay execution of recaptcha until it actually renders
       this.executeRequested = true;
@@ -119,7 +119,7 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
 
   public reset(): void {
     if (this.widget != null) {
-      if (this.grecaptcha.getResponse(this.widget)) {
+      if (this.grecaptcha?.getResponse(this.widget)) {
         // Only emit an event in case if something would actually change.
         // That way we do not trigger "touching" of the control if someone does a "reset"
         // on a non-resolved captcha.
@@ -139,7 +139,7 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
    * Instead, use more idiomatic ways to get reCAPTCHA value, such as `resolved` EventEmitter, or form-bound methods (ngModel, formControl, and the likes).å
    */
   public get __unsafe_widgetValue(): string | null {
-    return this.widget != null ? this.grecaptcha.getResponse(this.widget) : null;
+    return this.widget != null && this.grecaptcha ? this.grecaptcha.getResponse(this.widget) : null;
   }
 
   /** @internal */
@@ -161,9 +161,7 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
 
   /** @internal */
   private grecaptchaReset() {
-    if (this.widget != null) {
-      this.zone.runOutsideAngular(() => this.grecaptcha.reset(this.widget));
-    }
+    this.zone.runOutsideAngular(() => this.widget && this.grecaptcha?.reset(this.widget));
   }
 
   /** @internal */
@@ -190,7 +188,7 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
       };
     }
 
-    this.widget = this.grecaptcha.render(this.elementRef.nativeElement, renderOptions);
+    this.widget = this.grecaptcha?.render(this.elementRef.nativeElement, renderOptions) ?? null;
 
     if (this.executeRequested === true) {
       this.executeRequested = false;

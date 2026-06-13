@@ -23,7 +23,7 @@ async function simulatedAsynchronousCall(): Promise<Config> {
   providedIn: "root",
 })
 export class ConfigService {
-  private config: Config | null;
+  private config: Config | null = null;
 
   public get recaptchaSiteKeyV2(): string {
     this.assertConfigLoaded(this.config);

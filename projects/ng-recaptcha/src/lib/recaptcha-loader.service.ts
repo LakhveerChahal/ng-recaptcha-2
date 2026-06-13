@@ -14,7 +14,7 @@ import {
 } from "./tokens";
 
 function toNonNullObservable<T>(subject: BehaviorSubject<T | null>): Observable<T> {
-  return subject.asObservable().pipe(filter<T>((value) => value !== null));
+  return subject.asObservable().pipe(filter((value) => value !== null));
 }
 
 @Injectable()

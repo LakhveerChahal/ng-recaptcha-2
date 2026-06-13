@@ -37,6 +37,10 @@ export const settings: PageSettings = {
     component: ${highlightRequire(`${sourceDir}/app/examples/${featureName}/${featureName}-demo.component.ts`, "ts")},
     html: ${highlightRequire(`${sourceDir}/app/examples/${featureName}/${featureName}-demo.component.html`, "html")},
     module: ${highlightRequire(`${sourceDir}/app/examples/${featureName}/${featureName}-demo.module.ts`, "ts")},
+    additional: {
+      title: 'Additional files',
+      content: ''
+    }
   },
 };
 `;

@@ -24,7 +24,7 @@ export class PreloadedRecaptchaAPIService {
 
   constructor(@Optional() @Inject(RECAPTCHA_V3_SITE_KEY) v3SiteKey?: string) {
     const readySubject = new BehaviorSubject<ReCaptchaV2.ReCaptcha | null>(null);
-    this.ready = readySubject.asObservable().pipe(filter<ReCaptchaV2.ReCaptcha>((v) => v != null));
+    this.ready = readySubject.asObservable().pipe(filter((v) => v != null));
 
     if (typeof grecaptcha === "undefined") {
       const recaptchaScript = document.createElement("script");

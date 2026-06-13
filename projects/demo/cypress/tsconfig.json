@@ -3,6 +3,7 @@
   "include": ["./**/*.ts"],
   "exclude": [],
   "compilerOptions": {
+    "rootDir": "./",
     "sourceMap": false,
     "types": ["cypress", "node"]
   }

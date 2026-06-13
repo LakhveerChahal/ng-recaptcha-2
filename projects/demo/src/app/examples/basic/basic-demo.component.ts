@@ -9,7 +9,7 @@ import { RecaptchaErrorParameters } from "ng-recaptcha";
   standalone: false,
 })
 export class BasicDemoComponent {
-  public resolved(captchaResponse: string): void {
+  public resolved(captchaResponse: string | null): void {
     console.log(`Resolved captcha with response: ${captchaResponse}`);
   }
 

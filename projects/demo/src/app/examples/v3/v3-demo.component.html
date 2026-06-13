@@ -2,37 +2,31 @@
 <button (click)="executeAction('shoppingCart')">Execute "shoppingCart" action</button>
 
 @if (recentToken) {
-  <h3>Most recent token</h3>
-}
-@if (recentToken) {
-  <pre>{{ formatToken(recentToken) }}</pre>
-}
-
-@if (recentError) {
-  <h3 class="error">Most recent error</h3>
-}
-@if (recentError) {
-  <pre class="error">{{ recentError.error || "Most recent execution resulted in error" }}</pre>
+<h3>Most recent token</h3>
+} @if (recentToken) {
+<pre>{{ formatToken(recentToken) }}</pre>
+} @if (recentError) {
+<h3 class="error">Most recent error</h3>
+} @if (recentError) {
+<pre class="error">{{ recentError.error || "Most recent execution resulted in error" }}</pre>
 }
 
 <h3>reCAPTCHA execution log</h3>
-@if (executionLog.length === 0) {
-  <pre>(empty)</pre>
-}
-@if (executionLog.length > 0) {
-  <ol>
-    @for (entry of executionLog; track entry) {
-      <li>
-        Action: <code>{{ entry.action }}</code
-        >.
-        @if (entry.token) {
-          Token: <code>{{ formatToken(entry.token) }}</code>
-        }
-        @if (!entry.token) {
-          <span class="error">Error</span>:
-          <code>{{ entry.error || "This execution resulted in error" }}</code>
-        }
-      </li>
-    }
-  </ol>
+@if (successLog.length === 0 && errorLog.length === 0) {
+<pre>(empty)</pre>
+} @if (successLog.length > 0 || errorLog.length > 0) {
+<ol>
+  @for (entry of successLog; track entry) {
+  <li>
+    Action: <code>{{ entry.action }}</code
+    >. Token: <code>{{ formatToken(entry.token) }}</code>
+  </li>
+  } @for (entry of errorLog; track entry) {
+  <li>
+    Action: <code>{{ entry.action }}</code
+    >. <span class="error">Error</span>:
+    <code>{{ entry.error || "This execution resulted in error" }}</code>
+  </li>
+  }
+</ol>
 }
