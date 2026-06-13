@@ -1,7 +1,8 @@
-import { Directive, forwardRef, HostListener } from "@angular/core";
+import { Directive, forwardRef, OnDestroy } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 import { RecaptchaComponent } from "./recaptcha.component";
+import { Subscription } from "rxjs";
 
 @Directive({
   providers: [
@@ -14,16 +15,23 @@ import { RecaptchaComponent } from "./recaptcha.component";
   selector: "re-captcha[formControlName],re-captcha[formControl],re-captcha[ngModel]",
   standalone: false,
 })
-export class RecaptchaValueAccessorDirective implements ControlValueAccessor {
+export class RecaptchaValueAccessorDirective implements ControlValueAccessor, OnDestroy {
   /** @internal */
-  private onChange: (value: string | null) => void;
+  private onChange: undefined | ((value: string | null) => void);
 
   /** @internal */
-  private onTouched: () => void;
+  private onTouched: (() => void) | undefined;
 
   private requiresControllerReset = false;
+  private subscription = new Subscription();
 
-  constructor(private host: RecaptchaComponent) {}
+  constructor(private host: RecaptchaComponent) {
+    this.subscription.add(
+      host.resolved.subscribe((value: string | null) => {
+        this.onResolve(value);
+      }),
+    );
+  }
 
   public writeValue(value: string): void {
     if (!value) {
@@ -40,7 +48,7 @@ export class RecaptchaValueAccessorDirective implements ControlValueAccessor {
     }
   }
 
-  public registerOnChange(fn: (value: string) => void): void {
+  public registerOnChange(fn: (value: string | null) => void): void {
     this.onChange = fn;
     if (this.requiresControllerReset) {
       this.requiresControllerReset = false;
@@ -51,12 +59,16 @@ export class RecaptchaValueAccessorDirective implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  @HostListener("resolved", ["$event"]) public onResolve($event: string): void {
+  public onResolve($event: string | null): void {
     if (this.onChange) {
       this.onChange($event);
     }
     if (this.onTouched) {
       this.onTouched();
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

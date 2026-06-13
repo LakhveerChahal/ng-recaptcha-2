@@ -7,7 +7,7 @@ import { Component, ChangeDetectionStrategy } from "@angular/core";
   standalone: false,
 })
 export class GlobalConfigDemoComponent {
-  public resolved(captchaResponse: string): void {
+  public resolved(captchaResponse: string | null): void {
     console.log(`Resolved captcha with response: ${captchaResponse}`);
   }
 }

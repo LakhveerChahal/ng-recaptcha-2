@@ -44,16 +44,16 @@ export class ReCaptchaV3Service {
   /** @internal */
   private actionBacklog: ActionBacklogEntry[] | undefined;
   /** @internal */
-  private grecaptcha: ReCaptchaV2.ReCaptcha;
+  private grecaptcha: ReCaptchaV2.ReCaptcha | undefined;
 
   /** @internal */
-  private onExecuteSubject: Subject<OnExecuteData>;
+  private onExecuteSubject: Subject<OnExecuteData> | undefined;
   /** @internal */
-  private onExecuteErrorSubject: Subject<OnExecuteErrorData>;
+  private onExecuteErrorSubject: Subject<OnExecuteErrorData> | undefined;
   /** @internal */
-  private onExecuteObservable: Observable<OnExecuteData>;
+  private onExecuteObservable: Observable<OnExecuteData> | undefined;
   /** @internal */
-  private onExecuteErrorObservable: Observable<OnExecuteErrorData>;
+  private onExecuteErrorObservable: Observable<OnExecuteErrorData> | undefined;
 
   constructor(
     zone: NgZone,
@@ -67,7 +67,7 @@ export class ReCaptchaV3Service {
   }
 
   public get onExecute(): Observable<OnExecuteData> {
-    if (!this.onExecuteSubject) {
+    if (!this.onExecuteSubject || !this.onExecuteObservable) {
       this.onExecuteSubject = new Subject<OnExecuteData>();
       this.onExecuteObservable = this.onExecuteSubject.asObservable();
     }
@@ -76,7 +76,7 @@ export class ReCaptchaV3Service {
   }
 
   public get onExecuteError(): Observable<OnExecuteErrorData> {
-    if (!this.onExecuteErrorSubject) {
+    if (!this.onExecuteErrorSubject || !this.onExecuteErrorObservable) {
       this.onExecuteErrorSubject = new Subject<OnExecuteErrorData>();
       this.onExecuteErrorObservable = this.onExecuteErrorSubject.asObservable();
     }
@@ -126,7 +126,7 @@ export class ReCaptchaV3Service {
 
     this.zone.runOutsideAngular(() => {
       try {
-        this.grecaptcha.execute(this.siteKey, { action }).then((token: string) => {
+        this.grecaptcha?.execute(this.siteKey, { action }).then((token: string) => {
           this.zone.run(() => {
             subject.next(token);
             subject.complete();

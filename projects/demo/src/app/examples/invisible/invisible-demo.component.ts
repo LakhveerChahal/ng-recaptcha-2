@@ -10,7 +10,7 @@ import { RecaptchaErrorParameters } from "ng-recaptcha";
 })
 export class InvisibleDemoComponent {
   public captchaResponse = "";
-  public resolved(captchaResponse: string): void {
+  public resolved(captchaResponse: string | null): void {
     const newResponse = captchaResponse
       ? `${captchaResponse.substring(0, 7)}...${captchaResponse.substring(captchaResponse.length - 7)}`
       : captchaResponse;

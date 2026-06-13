@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
@@ -16,7 +15,7 @@
     "target": "ES2022",
     "module": "es2020",
     "paths": {
-      "ng-recaptcha": ["dist/ng-recaptcha/ng-recaptcha", "dist/ng-recaptcha"]
+      "ng-recaptcha": ["./dist/ng-recaptcha/ng-recaptcha", "./dist/ng-recaptcha"]
     },
     "useDefineForClassFields": false
   },

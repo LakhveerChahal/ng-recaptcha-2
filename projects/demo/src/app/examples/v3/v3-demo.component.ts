@@ -20,11 +20,12 @@ export class RecaptchaV3DemoComponent implements OnInit, OnDestroy {
   public recentToken = "";
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public recentError?: { error: any };
-  public readonly executionLog: Array<OnExecuteData | OnExecuteErrorData> = [];
+  public readonly successLog: OnExecuteData[] = [];
+  public readonly errorLog: OnExecuteErrorData[] = [];
 
-  private allExecutionsSubscription: Subscription;
-  private allExecutionErrorsSubscription: Subscription;
-  private singleExecutionSubscription: Subscription;
+  private allExecutionsSubscription: Subscription | undefined;
+  private allExecutionErrorsSubscription: Subscription | undefined;
+  private singleExecutionSubscription: Subscription | undefined;
 
   constructor(private recaptchaV3Service: ReCaptchaV3Service) {}
 
@@ -46,11 +47,9 @@ export class RecaptchaV3DemoComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.allExecutionsSubscription = this.recaptchaV3Service.onExecute.subscribe((data) =>
-      this.executionLog.push(data),
-    );
+    this.allExecutionsSubscription = this.recaptchaV3Service.onExecute.subscribe((data) => this.successLog.push(data));
     this.allExecutionErrorsSubscription = this.recaptchaV3Service.onExecuteError.subscribe((data) =>
-      this.executionLog.push(data),
+      this.errorLog.push(data),
     );
   }
 

@@ -3,7 +3,8 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "module": "CommonJS"
+    "module": "CommonJS",
+    "types": ["node"]
   },
-  "include": ["projects/demo/bin"]
+  "include": ["projects/demo/bin/**/*.ts"]
 }

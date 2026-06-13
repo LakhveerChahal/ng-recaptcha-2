@@ -22,6 +22,10 @@ export interface PageSettings {
     html: string;
     component: string;
     module: string;
+    additional: {
+      title: string;
+      content: string;
+    };
   };
 }
 export interface NavLink {
